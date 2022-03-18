@@ -13,15 +13,24 @@ axios.get(url).then((response) => {
 
   const todo = response.data as Todo;
 
-  const ID = todo.id;
+  const id = todo.id;
   const title = todo.title;
-  const finished = todo.completed;
+  const completed = todo.completed;
 
-  console.log(`
-  the todo with ID: ${ID}
-  Has a title of: ${title}
-  is it finished? ${finished}
-  `);
+  //   console.log(`
+  //   the todo with ID: ${ID}
+  //   Has a title of: ${title}
+  //   is it finished? ${finished}
+  //   `);
+  logTodo(id, title, completed);
 });
 
 // goal of typescript is to catch errors in development, creates early feedback and signals when i need to fix something up
+
+const logTodo = (id: number, title: string, completed: boolean) => {
+  console.log(`
+   the todo with ID: ${id}
+   Has a title of: ${title}
+   is it finished? ${completed}
+   `);
+};
